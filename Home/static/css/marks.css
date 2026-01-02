@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #6a11cb, #aa076b);
+  color: #f5f5f5;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+.hero{
+  background-color: indigo;
+  
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: none; 
+  border-right: none;
+
+
+}
+.hero h2{
+    text-align: center;
+}
+.marks-card {
+  background-color: #ffffff;
+  max-width: 720px;
+  margin: 2.5rem auto;
+  padding: 2rem 2.4rem;
+  border-radius: 16px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.15);
+}
+
+.examtitle {
+  margin: 0 0 1.6rem 0;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4b0082;
+  background: #f1e9ff;
+  border-left: 6px solid #6a11cb;
+  border-radius: 8px;
+}
+
+.marks-card p:first-of-type {
+  font-size: 1.1rem;
+  color: #495057;
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+.marks-card p:last-of-type {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #198754;
+  text-align: center;
+  background: #eafaf1;
+  padding: 0.8rem 1.4rem;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .marks-card {
+    margin: 2rem 1rem;
+    padding: 1.6rem 1.8rem;
+  }
+
+  .examtitle {
+    font-size: 1.3rem;
+  }
+
+  .marks-card p:last-of-type {
+    font-size: 1.4rem;
+  }
+}
