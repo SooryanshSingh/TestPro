@@ -1,21 +1,18 @@
 body {
-  background: linear-gradient(to right bottom, #a1c4fd, #c2e9fb);
-  background-size: cover;      /* optional with gradients */
-  background-position: center; /* optional with gradients */
-  min-height: 100vh;
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #6a11cb, #aa076b);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-h1 {
+h2 {
   text-align: center;
-  color: #333;
-  font-family: 'Brush Script MT', cursive;
+ 
+   color: #cdda0fff;
+
   font-weight: bold;
   margin: 20px 0;
 }

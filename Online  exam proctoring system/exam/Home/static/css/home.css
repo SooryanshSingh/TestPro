@@ -1,4 +1,3 @@
-/* === Base & Fonts === */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -10,7 +9,6 @@ body {
   overflow-x: hidden;
 }
 
-/* === Header & Navigation === */
 .header {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(14px);
@@ -20,6 +18,17 @@ body {
   top: 0;
   z-index: 1000;
   transition: all 0.3s ease;
+}
+
+.hero-main{
+  background-color: indigo;
+  
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: none; 
+  border-right: none;
+
+
 }
 
 .nav {
@@ -48,7 +57,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* === Buttons === */
 .btn {
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
@@ -60,20 +68,17 @@ body {
   overflow: hidden;
 }
 
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
+.btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.btn:hover::before {
-  left: 100%;
-}
 
 .primary {
   background-color: #e74c3c;
@@ -97,19 +102,10 @@ body {
   box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3);
 }
 
-.cta {
-  background-color: #fff;
-  color: #6a11cb;
-  font-weight: 700;
-}
 
-.cta:hover {
-  background-color: #f1f1f1;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-}
 
-/* === Hero Section === */
+
+
 .hero {
   padding: 5rem 2rem 4rem;
   text-align: center;
@@ -118,18 +114,7 @@ body {
   position: relative;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: -1;
-}
+
 
 .hero h1 {
   font-size: 3.2rem;
@@ -145,7 +130,6 @@ body {
   animation: fadeInUp 1s ease-out 0.2s both;
 }
 
-/* === Features Section === */
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -180,27 +164,6 @@ body {
   transition: transform 0.3s ease;
 }
 
-.card:hover::before {
-  transform: scaleX(1);
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
-}
-
-.card:nth-child(odd):hover {
-  transform: translateY(-8px) rotate(1deg);
-}
-
-.card:nth-child(even):hover {
-  transform: translateY(-8px) rotate(-1deg);
-}
-
-.card:nth-child(1) { animation-delay: 0.1s; }
-.card:nth-child(2) { animation-delay: 0.2s; }
-.card:nth-child(3) { animation-delay: 0.3s; }
-.card:nth-child(4) { animation-delay: 0.4s; }
 
 .icon {
   font-size: 2.5rem;
@@ -210,19 +173,8 @@ body {
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-.card:nth-child(2) .icon {
-  animation-delay: -1s;
-}
 
-.card:nth-child(3) .icon {
-  animation-delay: -2s;
-}
 
-.card:nth-child(4) .icon {
-  animation-delay: -1.5s;
-}
-
-/* === Roles Section === */
 .roles {
   display: flex;
   flex-direction: column;
@@ -236,21 +188,7 @@ body {
   overflow: hidden;
 }
 
-.roles::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
 
-.roles:hover::after {
-  opacity: 1;
-}
 
 .role {
   background-color: #ffffff;
@@ -280,17 +218,10 @@ body {
   transform: scaleX(1);
 }
 
-.role:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-}
 
-.role:nth-child(1) { animation-delay: 0.2s; }
-.role:nth-child(2) { animation-delay: 0.4s; }
 
-/* === Footer === */
 .footer {
-  background: rgba(255, 255, 255, 0.08);
+  background: indigo;
   backdrop-filter: blur(12px);
   padding: 1.5rem 2rem;
   text-align: center;

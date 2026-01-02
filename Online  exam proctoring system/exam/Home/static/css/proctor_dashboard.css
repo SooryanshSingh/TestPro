@@ -1,13 +1,14 @@
 /* proctor_dashboard.css */
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f4f6f9;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #6a11cb, #aa076b);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
-
 .container {
     max-width: 900px;
     margin: 50px auto;

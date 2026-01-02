@@ -45,6 +45,7 @@ class Mark(models.Model):
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE, related_name='marks')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     marks = models.IntegerField(default=0)
+    company = models.ForeignKey(User,on_delete=models.CASCADE,null=True,blank=True, related_name='company_marks')
 
 class ProctorEmail(models.Model):
     email = models.EmailField(unique=True)

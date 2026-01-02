@@ -9,7 +9,7 @@
 {% block content %}
 <div class="container">
     <h1>Welcome to your Dashboard, {{ user.username }}</h1>
-    <h2>These are the exams created by the company {{ company.username }}</h2>
+    <h2>These are the exams created by the test maker {{ company.username }}</h2>
 
     <ul class="exam-list">
         {% for exam in exams %}

@@ -2,31 +2,19 @@
 {% load static %}
 
 {% block title %}Marks{% endblock %}
-{% block css %}<link rel="stylesheet" href="{%static '.css/marks.css'%}" />{% endblock %}
+{% block css %}<link rel="stylesheet" href="{%static './css/marks.css'%}" />{% endblock %}
 
 
-{% block header %}
-    Marks for Exams Created by {{ user.get_full_name }}
-{% endblock %}
+
 
 {% block content %}
-<h2 id="markheader">Exam Marks</h2>
-{% for exam in exam_data %}
-    <div id="exam{{ exam.id }}" class="examwrap">
-        <h3 class="examtitle">{{ exam.title }}</h3>
-        <h4 class="rosterlabel">Assigned Students</h4>
-        <ul class="roster">
-            {% for student in exam.students %}
-                <li id="student{{ student.username }}" class="studentrow">
-                    <span class="studentname">{{ student.name }} ({{ student.username }})</span>
-                    {% if student.marks != None %}
-                        <span class="points">Marks: {{ student.marks }}</span>
-                    {% else %}
-                        <span class="unattempted">Not Attempted</span>
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
+<div class="hero"><h2 >Exam Marks</h2></div>
+
+{% for marks in marks %}
+    <div class="marks-card">
+        <h3 class="examtitle">Exam name: {{ marks.exam.title }}</h3>
+        <p>Exam Taker: {{ marks.user }}</p>
+        <p>Marks: {{ marks.marks }}</p>
     </div>
 {% empty %}
     <p style="text-align: center; color: #6c757d;">No exams found.</p>

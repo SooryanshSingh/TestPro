@@ -6,7 +6,9 @@
 <link rel="stylesheet" href="{% static 'css/exam_list.css' %}" />
 {% endblock %}
 {% block content %}
+  <div class="hero">
   <h2>List of exams</h2>
+  </div>
   {% if not user.is_authenticated %}
     <p>Please login to continue</p>
   {% else %}
@@ -40,4 +42,6 @@
       {% endfor %}
     </ul>
   {% endif %}
+
+ 
 {% endblock %}

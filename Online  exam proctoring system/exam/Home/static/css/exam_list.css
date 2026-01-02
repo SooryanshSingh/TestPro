@@ -1,33 +1,37 @@
 body {
-    background: linear-gradient(to right bottom, #a1c4fd, #c2e9fb);
-    background-size: cover;      
-    background-position: center; 
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    font-family: 'Arial', sans-serif;
-  }
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #6a11cb, #aa076b);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+.hero{
+  background-color: indigo;
+  
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: none; 
+  border-right: none;
+
+
+}
 p{
     size: 50px;
     color: red;
 }
 
-h1, h2, h3 {
-    color: #333;
+h2, h3 {
     text-align: center;
-    font-family: 'Brush Script MT', cursive;
     font-weight: bold;
     margin-bottom: 20px;
 }
+h2{
+        color: #cdda0fff;
 
-h2 {
-    font-size: 36px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 
 .exam-title {
     font-weight: bold;
@@ -55,7 +59,7 @@ h2 {
 
 a {
     font-size: 20px;
-    color: #ff5100;
+    background-color: #ff5100;
     text-decoration: none;
     border: 2px solid #FFA500;
     padding: 5px 10px;

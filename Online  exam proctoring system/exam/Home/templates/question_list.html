@@ -5,13 +5,13 @@
 {% block header %}Questions List{% endblock %}
 {% block css %} <link rel="stylesheet" href="{% static 'css/exam_list.css' %}" />  {% endblock %}
 {% block content %}
-
+  <div class="hero">
   <h2>Questions</h2>
+  </div>
   <ul>
     {% for question in questions %}
       <li>
         <h3>{{ question.text }}</h3>
-        <p>Type: {{ question.get_question_type_display }}</p>
         <p>Exam: {{ question.exam.title }}</p>
         <form method="post" action="{% url 'question_delete' exam_id question.id %}">
           {% csrf_token %}

@@ -1,96 +1,75 @@
 body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 2rem;
-    color: #212529;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #6a11cb, #aa076b);
+  color: #f5f5f5;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
+.hero{
+  background-color: indigo;
+  
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: none; 
+  border-right: none;
 
-#markheader {
-    font-size: 2.3rem;
-    font-weight: bold;
-    color: #343a40;
+
+}
+.hero h2{
     text-align: center;
-    margin-bottom: 2rem;
-    border-bottom: 2px solid #dee2e6;
-    padding-bottom: 0.5rem;
-    width: 100%;
-    max-width: 900px;
 }
-
-.examwrap {
-    background-color: #ffffff;
-    border: 1px solid #dee2e6;
-    border-left: 5px solid #0d6efd;
-    padding: 1.5rem 2rem;
-    margin-bottom: 2rem;
-    width: 100%;
-    max-width: 900px;
+.marks-card {
+  background-color: #ffffff;
+  max-width: 720px;
+  margin: 2.5rem auto;
+  padding: 2rem 2.4rem;
+  border-radius: 16px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.15);
 }
 
 .examtitle {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #0d6efd;
-    margin-bottom: 1rem;
+  margin: 0 0 1.6rem 0;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4b0082;
+  background: #f1e9ff;
+  border-left: 6px solid #6a11cb;
+  border-radius: 8px;
 }
 
-.rosterlabel {
-    font-size: 1rem;
-    color: #6c757d;
-    font-weight: 500;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #e9ecef;
-    padding-bottom: 0.3rem;
+.marks-card p:first-of-type {
+  font-size: 1.1rem;
+  color: #495057;
+  margin-bottom: 0.6rem;
+  text-align: center;
 }
 
-.roster {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+.marks-card p:last-of-type {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #198754;
+  text-align: center;
+  background: #eafaf1;
+  padding: 0.8rem 1.4rem;
+  border-radius: 10px;
 }
 
-.studentrow {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #e9ecef;
-}
+@media (max-width: 768px) {
+  .marks-card {
+    margin: 2rem 1rem;
+    padding: 1.6rem 1.8rem;
+  }
 
-.studentrow:last-child {
-    border-bottom: none;
-}
+  .examtitle {
+    font-size: 1.3rem;
+  }
 
-.studentname {
-    font-weight: 600;
-    color: #212529;
-}
-
-.points {
-    font-weight: bold;
-    color: #198754;
-}
-
-.unattempted {
-    font-style: italic;
-    color: #adb5bd;
-    font-weight: 500;
-}
-
-p {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #6c757d;
-    background-color: #ffffff;
-    padding: 1rem 2rem;
-    border: 1px solid #dee2e6;
-    border-radius: 6px;
-    width: 100%;
-    max-width: 600px;
-    margin-top: 3rem;
+  .marks-card p:last-of-type {
+    font-size: 1.4rem;
+  }
 }

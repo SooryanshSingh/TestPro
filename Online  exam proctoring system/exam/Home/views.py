@@ -1,6 +1,6 @@
 from django.contrib.auth.models import Group, User
 from django.views.decorators.cache import cache_control
-from .models import Exam,Exam, Question, Answer
+from .models import Exam,Exam, Question, Answer, Mark
 from django.http import JsonResponse
 import json
 from django.shortcuts import render, redirect,get_object_or_404
@@ -153,6 +153,8 @@ def company_dashboard(request):
   
 def proctor_dashboard(request):
     if request.user.groups.filter(name='Proctor').exists():
+        print(request.user.email)
+        
         company = ProctorEmail.objects.get(email=request.user.email).submitted_by
         exams = Exam.objects.filter(company=company)
         context = {
@@ -164,8 +166,10 @@ def proctor_dashboard(request):
         return redirect('home')
 def marks_view(request):
     if request.user.groups.filter(name='Company').exists():
-        exams = Exam.objects.filter(company=request.user)
-        context = {'exams': exams}
+        marks = Mark.objects.filter(company=request.user)
+        context = {'marks': marks}
+
+        print("This",marks)
         return render(request, 'marks.html', context)
     else:
         return redirect('home')

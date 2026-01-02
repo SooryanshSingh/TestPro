@@ -1,11 +1,13 @@
 /* dashboard.css */
 
 body {
-    font-family: 'Helvetica Neue', sans-serif;
-    background-color: #f7f9fc;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #6a11cb, #aa076b);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .container {

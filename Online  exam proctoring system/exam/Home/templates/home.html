@@ -4,11 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Modern Test Portal{% endblock %}</title>
+    <title>{% block title %}TestPro{% endblock %}</title>
   
     {% block css %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 
     {% endblock %}
@@ -31,19 +30,24 @@
                 {% if is_company and not is_proctor %}
                     <a href="{% url 'company_dashboard' %}" class="btn secondary">Dashboard</a>
                 {% endif %}
-                {% if not is_company and not is_proctor%}
+                {% if user.is_authenticated and not is_company and not is_proctor%}
                 <a href="{% url 'dashboard' %}" class="btn secondary">Dashboard</a>
+                {% endif %}
+
+                {% if user.is_authenticated and is_proctor %}
+                    <a href="{% url 'proctor_dashboard' %}" class="btn secondary">Dashboard</a>
                 {% endif %}
             </div>
         </nav>
     </header>
 
     <main>
+        <div class="hero-main">
         <section class="hero">
             <h1>Revolutionize Your Testing Experience</h1>
             <p>Secure, efficient, and tailored for every user's needs</p>
-            <a href="#features" class="btn cta">Explore Features</a>
         </section>
+        </div>
 
         <section id="features" class="features">
             <div class="card">
@@ -61,11 +65,7 @@
                 <h2>Custom Exams</h2>
                 <p>Create personalized tests tailored to your requirements</p>
             </div>
-            <div class="card">
-                <div class="icon">💬</div>
-                <h2>Real-Time Chat</h2>
-                <p>Instant communication between proctors and test-takers</p>
-            </div>
+        
         </section>
 
         <section class="roles">

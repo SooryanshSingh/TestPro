@@ -48,7 +48,7 @@ def test_with_chat(request, exam_id):
             if answer.is_correct:
                 total_marks += 1
         
-        Mark.objects.create(exam=exam, user=request.user, marks=total_marks)
+        Mark.objects.create(exam=exam, user=request.user, marks=total_marks, company=exam.company)
 
 
         return redirect('test_end', exam_id=exam.id) 

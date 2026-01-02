@@ -3,15 +3,19 @@
 
 {% block title  %} Login {% endblock %}
 {% block css %}<link rel="stylesheet" href="{%static './css/login.css'%}" />{% endblock %}
-{% block content %}<p>Kindly login with your creditionals to access the interface</p>
+{% block content %}<div class="hero"><p>Kindly login with your creditionals to access the interface</p></div>
 {% for message in messages %}
     {% if message.message == "Invalid information. Please try again" %}
         <p>{{ message.message }}</p>
     {% endif %}
 {% endfor %}
-<div class="container">
+
+
+<div class="container">'
+    <div class="child">
+<img src="../static/lock.png"/>
+
 <div class='formdiv'>
-<img src="{%static 'lock.png'%}">
     <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
         <label for="username">Username:</label>
@@ -23,8 +27,11 @@
         <button type="submit">Login</button>
     </form>
 </div>
+    </div>
 </div>
-
+<footer class="footer">
+    <p>&copy; 2024 TestPro. Elevating online examinations.</p>
+</footer>
 
 {% endblock %}
 

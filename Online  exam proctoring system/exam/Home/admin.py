@@ -9,6 +9,7 @@ admin.site.register(Answer)
 admin.site.register(Feedback)
 admin.site.register(Response)
 admin.site.register(ProctorEmail)
+admin.site.register(Mark)
 
 admin.site.register(Timer)
 # Register your models here.

@@ -1,8 +1,16 @@
 
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #6a11cb, #aa076b);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 h1, h2, h3 {
     color: #333;
     text-align: center;
-    font-family: 'Brush Script MT', cursive;
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -10,6 +18,19 @@ h1, h2, h3 {
 h2 {
     font-size: 36px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+color: #cdda0fff;
+
+}
+.hero{
+  background-color: indigo;
+  
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-left: none; 
+  border-right: none;
+
+
 }
 
 .exam-title, .question-title {
@@ -38,7 +59,7 @@ h2 {
 
 a {
     font-size: 20px;
-    color: #ff5100;
+    background-color: #ff5100;
     text-decoration: none;
     border: 2px solid #FFA500;
     padding: 5px 10px;
