@@ -9,34 +9,36 @@
 </head>
 
 <body>
+<div id="layout">
 
-<div id="main-content">
-    <h1>Proctor is Watching</h1>
+    <div id="main-content">
+        <h1>Proctor is Watching</h1>
 
-    <div id="remote-video">
-        <p id="waiting-message">Waiting for student...</p>
-    </div>
+        <div id="remote-video">
+            <p id="waiting-message">Waiting for student...</p>
+        </div>
 
-    <div class="close">
-        <button type="button" id="close-exam-button" class="centered-button">
-            Close Exam
-        </button>
-    </div>
+       <div class="action-buttons">
+    <button type="button" id="close-exam-button" class="centered-button">
+        Close Exam
+    </button>
 
-    <div class="warn">
-        <button type="button" id="warn-exam-button" class="centered-button">
-            Warn Student
-        </button>
-    </div>
-
-    <input type="hidden" id="exam-id" value="{{ exam_id }}">
+    <button type="button" id="warn-exam-button" class="centered-button">
+        Warn Student
+    </button>
 </div>
 
-<!-- Timeline Panel -->
-<div id="timeline-container">
-    <h3>Event Timeline</h3>
-    <div id="timeline"></div>
+
+        <input type="hidden" id="exam-id" value="{{ exam_id }}">
+    </div>
+
+    <div id="timeline-container">
+        <h3>Event Timeline</h3>
+        <div id="timeline"></div>
+    </div>
+
 </div>
+
 
 <!-- Scripts -->
  <script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
