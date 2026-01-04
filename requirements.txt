@@ -31,5 +31,4 @@ whitenoise==6.11.0
 zope.interface==8.1.1
 dj-database-url
 psycopg2-binary
-
-
+agora-token-builder
