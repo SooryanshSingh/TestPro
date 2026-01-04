@@ -60,14 +60,20 @@
        
 </form>
 
-
-
+<script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+<script>
+    window.TEST_END_URL = "{% url 'test_end' exam.id %}";
+</script>
 
 <script src="{% static 'js/Student/Close.js' %}"></script>
 
 <script src="{% static 'js/Student/Questions.js' %}"></script>
 <script src="{% static 'js/Student/Timer.js' %}"></script>
 <script src="{% static 'js/Student/Tab.js' %}"></script>
+<script>
+
+</script>
+<input type="hidden" id="session-id" value="_user_{{ request.user.id }}">
 <script src="{% static 'js/Student/Video.js' %}"></script>
 
 

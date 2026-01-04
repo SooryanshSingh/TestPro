@@ -7,9 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.json())
             .then(data => {
                 let timeLeft = Math.floor(data.remaining_time);
-    
+                if (timeLeft <= 120) {
+                        timerDisplay.style.color = "red";
+                        timerDisplay.style.fontWeight = "bold";
+}
                 if (timeLeft <= 0) {
-                    window.location.href = `/test_end/${examId}/`;
+                    window.location.href = window.TEST_END_URL;
                     clearInterval(timerInterval);
                 } else {
                     let minutes = Math.floor(timeLeft / 60);

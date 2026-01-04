@@ -14,13 +14,17 @@ const examSocket = new WebSocket(
         const data = JSON.parse(e.data);
     
         if (data.type === "exam_closed") {
-            window.location.href = `/test_end/${examId}/`;
+             window.location.href = window.TEST_END_URL;
+        }
+         if (data.type === "warning_message") {
+            alert("Warning: Please adhere to the exam rules.");
         }
        
         
       
     
     };
+
     
     examSocket.onclose = function (e) {
     console.error("Exam WebSocket closed unexpectedly.");

@@ -14,7 +14,7 @@
     <ul class="exam-list">
         {% for exam in exams %}
             <li class="exam-item">
-                <a href="{% url 'proctor' exam_id=exam.id %}" class="exam-title">YO</a>
+                <a href="{% url 'Dash' exam_id=exam.id %}" class="exam-title">{{exam}}</a>
                 <p class="exam-description">{{ exam.description }}</p>
                 <div class="exam-details">
                     <p><strong>Start Time:</strong> {{ exam.start_time }}</p>

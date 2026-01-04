@@ -21,6 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('realtime/', include('realtime.urls')),
     path('',include('Home.urls')),
+    path('',include('realtime.urls')),
+    
 
 
 ]

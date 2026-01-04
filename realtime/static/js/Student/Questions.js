@@ -1,5 +1,3 @@
-
-
 const questionLinks = document.querySelectorAll('.question-link');
 const questionItems = document.querySelectorAll('.question-item');
 let currentQuestionIndex = 0;
@@ -32,8 +30,7 @@ document.getElementById('clear-button').addEventListener('click', function () {
     radioInputs.forEach(input => {
         input.checked = false;
     });
-    checkAllAnswered();
-    storeAnswers(); 
+    storeAnswers();
 });
 
 function showQuestion(questionId) {
@@ -66,57 +63,48 @@ function updateNavigationButtons() {
 const submitButton = document.querySelector('.submit-button');
 const radioInputs = document.querySelectorAll('input[type="radio"]');
 
-function checkAllAnswered() {
-    const answeredQuestions = new Set();
-    radioInputs.forEach(input => {
-        if (input.checked) {
-            answeredQuestions.add(input.name);
-        }
-    });
-    if (answeredQuestions.size === questionItems.length) {
-        submitButton.disabled = false;
-    } else {
-        submitButton.disabled = true;
-    }
-}
+submitButton.disabled = false;
+
+function checkAllAnswered() {}
 
 radioInputs.forEach(input => {
     input.addEventListener('change', function () {
-        storeAnswers(); 
-        checkAllAnswered();
+        storeAnswers();
     });
 });
+
 function storeAnswers() {
-        const answers = {};
-        radioInputs.forEach(input => {
-            if (input.checked) {
-                answers[input.name] = input.value;
+    const answers = {};
+    radioInputs.forEach(input => {
+        if (input.checked) {
+            answers[input.name] = input.value;
+        }
+    });
+    sessionStorage.setItem('examAnswers', JSON.stringify(answers));
+}
+
+function restoreAnswers() {
+    const storedAnswers = sessionStorage.getItem('examAnswers');
+    if (storedAnswers) {
+        const answers = JSON.parse(storedAnswers);
+        Object.keys(answers).forEach(name => {
+            const input = document.querySelector(`input[name="${name}"][value="${answers[name]}"]`);
+            if (input) {
+                input.checked = true;
             }
         });
-        sessionStorage.setItem('examAnswers', JSON.stringify(answers));
     }
+}
 
-    function restoreAnswers() {
-        const storedAnswers = sessionStorage.getItem('examAnswers');
-        if (storedAnswers) {
-            const answers = JSON.parse(storedAnswers);
-            Object.keys(answers).forEach(name => {
-                const input = document.querySelector(`input[name="${name}"][value="${answers[name]}"]`);
-                if (input) {
-                    input.checked = true;
-                }
-            });
+window.onload = function () {
+    restoreAnswers();
+
+    document.getElementById('exam-form').onsubmit = function (e) {
+        const ok = confirm("Are you sure you want to submit the exam?");
+        if (!ok) {
+            e.preventDefault();
+            return false;
         }
-        checkAllAnswered(); 
-    }
-
-    
-
-
-    window.onload = function () {
-restoreAnswers(); 
-
-document.getElementById('exam-form').onsubmit = function (e) {
-    localStorage.removeItem('answers'); 
-};
+        localStorage.removeItem('answers');
+    };
 };

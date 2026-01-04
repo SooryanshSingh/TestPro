@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proctor Dashboard – Exam {{ exam_id }}</title>
+</head>
+<body>
+
+<h1>Exam {{ exam_id }} – Live Proctor Dashboard</h1>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/D_Proc.css' %}">
+
+<table border="1" cellpadding="8">
+    <thead>
+        <tr>
+            <th>Student Session</th>
+            <th>Violation Count</th>
+        </tr>
+    </thead>
+    <tbody id="student-table">
+        <!-- rows added dynamically -->
+    </tbody>
+</table>
+
+<script>
+    const EXAM_ID = "{{ exam_id }}";
+</script>
+<script src="{% static 'js/Proctor/dashboard.js' %}"></script>
+
+</body>
+</html>

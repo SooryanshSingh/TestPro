@@ -43,6 +43,9 @@ video {
 .close {
     margin-top: 30px;
 }
+.warn{
+    margin-top: 30px;
+}
 
 .centered-button {
     padding: 10px 20px;
@@ -57,3 +60,31 @@ video {
 .centered-button:hover {
     background-color: darkred;
 }
+ 
+
+#main-content {
+     flex: 3;
+        }
+
+#timeline-container {
+        flex: 1;
+        border-left: 2px solid #ccc;
+        padding-left: 15px;
+        max-height: 80vh;
+        overflow-y: auto;
+        }
+
+#timeline-container h3 {
+        margin-top: 0;
+        }
+
+.timeline-event {
+        font-size: 14px;
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px dashed #ddd;
+        }
+.time {
+        color: gray;
+        font-size: 12px;
+        }

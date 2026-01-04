@@ -27,6 +27,23 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
             console.error("WebSocket is not open. ReadyState: ", examSocket.readyState);
         }
+        
+    });
+
+    document.getElementById("warn-exam-button").addEventListener("click", function () {
+        console.log("HMM");
+        console.log("WebSocket ReadyState:", examSocket.readyState);
+
+        if (examSocket.readyState === WebSocket.OPEN) {
+            examSocket.send(JSON.stringify({
+                type: "warn_student",
+                exam_id: examId
+            }));
+            console.log("Warn student message sent!");
+        } else {
+            console.error("WebSocket is not open. ReadyState: ", examSocket.readyState);
+        }
+        
     });
 
 });

@@ -80,14 +80,15 @@ def signup(request):
             password = form.cleaned_data['password1']
             role = form.cleaned_data['role']
             if role == 'Company':
-                group = Group.objects.get(name='Company')
+                group, _ = Group.objects.get_or_create(name="Company")
                 user.groups.add(group)
+
             elif role == 'Student':
-                group = Group.objects.get(name='Student')
+                group, _ = Group.objects.get_or_create(name="Student")
                 user.groups.add(group)
 
             if ProctorEmail.objects.filter(email=user.email).exists():
-                group = Group.objects.get(name='Proctor')
+                group, _ = Group.objects.get_or_create(name="Proctor")
                 user.groups.add(group)
 
             user = authenticate(username=username, password=password)
@@ -155,7 +156,9 @@ def proctor_dashboard(request):
     if request.user.groups.filter(name='Proctor').exists():
         print(request.user.email)
         
+        
         company = ProctorEmail.objects.get(email=request.user.email).submitted_by
+        print("OK",company)
         exams = Exam.objects.filter(company=company)
         context = {
             'exams': exams,

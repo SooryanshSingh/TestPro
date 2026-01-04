@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <title>Proctor</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/proctor.css' %}">
+
 </head>
+
 <body>
 
+<div id="main-content">
     <h1>Proctor is Watching</h1>
 
     <div id="remote-video">
@@ -15,15 +18,32 @@
     </div>
 
     <div class="close">
-        <button type="button" id="close-exam-button" class="centered-button">Close Exam</button>
+        <button type="button" id="close-exam-button" class="centered-button">
+            Close Exam
+        </button>
+    </div>
+
+    <div class="warn">
+        <button type="button" id="warn-exam-button" class="centered-button">
+            Warn Student
+        </button>
     </div>
 
     <input type="hidden" id="exam-id" value="{{ exam_id }}">
+</div>
 
-    <!-- Scripts -->
-    <script src="{% static 'js/Proctor/Close_exam.js' %}"></script>
-    <script src="{% static 'js/Proctor/Tab.js' %}"></script>
-    <script src="{% static 'js/Proctor/Video.js' %}"></script>
+<!-- Timeline Panel -->
+<div id="timeline-container">
+    <h3>Event Timeline</h3>
+    <div id="timeline"></div>
+</div>
+
+<!-- Scripts -->
+ <script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+
+<script src="{% static 'js/Proctor/Close_exam.js' %}"></script>
+<script src="{% static 'js/Proctor/Tab.js' %}"></script>
+<script src="{% static 'js/Proctor/Video.js' %}"></script>
 
 </body>
 </html>

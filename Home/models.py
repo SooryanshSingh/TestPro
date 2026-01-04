@@ -62,15 +62,13 @@ class Timer(models.Model):
     start_time = models.DateTimeField(null=True, blank=True)
 
     def start_timer(self):
-        """Starts the timer when the first user begins the exam."""
         if not self.start_time:
             self.start_time = now()
             self.save()
 
     def get_remaining_time(self):
-        """Returns remaining time in seconds. If not started, return full duration."""
         if not self.start_time:
-            return self.exam.duration * 60  # Full duration in seconds
+            return self.exam.duration * 60  
 
         elapsed_time = (now() - self.start_time).total_seconds()
         return max(0, self.exam.duration * 60 - elapsed_time)

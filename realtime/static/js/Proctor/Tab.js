@@ -1,26 +1,59 @@
 document.addEventListener("DOMContentLoaded", function () {
     const examIdElement = document.getElementById("exam-id");
-    console.log("KKK");
-    const wsScheme = window.location.protocol === "https:" ? "wss" : "ws";
+    const timelineDiv = document.getElementById("timeline");
 
-    if (!examIdElement) {
-        console.error("Exam ID element not found!");
+    if (!examIdElement || !timelineDiv) {
         return;
     }
 
     const examId = parseInt(examIdElement.value);
-    console.log("Parsed exam ID:", examId);
+    const pathParts = window.location.pathname.split("/");
+    const sessionId = pathParts[pathParts.indexOf("session") + 1];
 
+    const STORAGE_KEY = `exam_${examId}_session_${sessionId}_timeline`;
 
-    const tab = new WebSocket(`${wsScheme}://${window.location.host}/ws/exam/tab/${examId}/`);
-        tab.onmessage= function (e) {
-    const data= JSON.parse(e.data);
-    if (data.type === "tab_change") {
-    const sender = data.name;
-    const message = data.message || "Tab change detected";
-    
-    alert(`⚠️ Tab Change Detected!\n\nFrom: ${sender}\nMessage: ${message}`);
+    function getCurrentTime() {
+        return new Date().toLocaleTimeString();
     }
-}
-});
 
+    function addEventToTimeline(text) {
+        const time = getCurrentTime();
+
+        const div = document.createElement("div");
+        div.classList.add("timeline-event");
+        div.innerHTML = `<span class="time">${time}</span> — ${text}`;
+        timelineDiv.prepend(div);
+
+        const stored = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        stored.push({ time, text });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(stored));
+    }
+
+    function loadTimelineFromStorage() {
+        const stored = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+        stored.forEach(event => {
+            const div = document.createElement("div");
+            div.classList.add("timeline-event");
+            div.innerHTML = `<span class="time">${event.time}</span> — ${event.text}`;
+            timelineDiv.appendChild(div);
+        });
+    }
+
+    loadTimelineFromStorage();
+
+    const wsScheme = window.location.protocol === "https:" ? "wss" : "ws";
+    const socket = new WebSocket(
+        `${wsScheme}://${window.location.host}/ws/exam/tab/${examId}/`
+    );
+
+    socket.onmessage = function (e) {
+        const data = JSON.parse(e.data);
+
+        if (
+            data.type === "violation_update" &&
+            data.full_session_id === sessionId
+        ) {
+            addEventToTimeline("Tab violation detected");
+        }
+    };
+});
