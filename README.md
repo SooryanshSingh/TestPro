@@ -153,20 +153,14 @@
 
 # Future Improvements
 
-- Face presence detection  
-  Detect if no face or multiple faces appear during the exam and log it as a violation.
+- Detect if no face or multiple faces appear during the exam and log it as a violation.
 
-- Screen activity monitoring  
-  Detect screen minimization, fullscreen exit, or screen sharing attempts.
+- Detect screen minimization, fullscreen exit, or screen sharing attempts.
 
-- Reconnection handling 
-  Automatically restore student exam state after accidental refresh or network drop.
+- Automatically restore student exam state after accidental refresh or network drop.
 
-- Proctor notes per student 
-  Allow proctors to add short notes during the exam for post-exam review.
+- Allow proctors to add short notes during the exam for post-exam review.
 
-
-- Horizontal scaling
-  Move WebSocket channel layer to Redis for large-scale concurrent exams.
+- Move WebSocket channel layer to Redis for large-scale concurrent exams.
 
 
